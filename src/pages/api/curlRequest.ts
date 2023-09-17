@@ -10,7 +10,7 @@ export default async function handler(
     res.status(200).json({ name: "John Doe" });
   } else if (req.method == "POST") {
     try {
-      const { user, question, answer } = req.body;
+      const { question, answer } = req.body;
 
       res.setHeader("Access-Control-Allow-Origin", "*");
       res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -25,7 +25,7 @@ export default async function handler(
 
       const response = await axios.post(
         process.env?.NEXT_PUBLIC_HTTP_URL!,
-        `{"event":"“user”:${user}, “type”: ${process?.env?.NEXT_PUBLIC_TYPE},“Answer”:${answer}"}`,
+        `{"event":"“user”:"Edge", “type”: ${process?.env?.NEXT_PUBLIC_TYPE},“Answer”:${answer}"}`,
         {
           headers: {
             Authorization: `Splunk ${process?.env?.NEXT_PUBLIC_TOKEN}`,

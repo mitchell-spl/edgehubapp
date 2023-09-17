@@ -41,7 +41,7 @@ export default function CurlForm({ qnumber }: { qnumber: number }) {
 
     try {
       const response = await axios.post("/api/curlRequest", {
-        user: data.user,
+     
         // @ts-ignore
         answer: event?.nativeEvent?.submitter?.name as string,
       });
@@ -77,36 +77,28 @@ export default function CurlForm({ qnumber }: { qnumber: number }) {
       </h2> */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-5">
-          <Input
-            inputType="text"
-            label="User Name"
-            required={true}
-            register={register}
-            name="user"
-            errors={errors}
-            rules={{ required: "User Name Is Required" }}
-          />
+         
 
           <button
             name="A"
             disabled={loadingA}
             className="w-[100%] rounded-md text-white h-[48px] text-[18px] bg-red-400 flex items-center justify-center cursor-pointer hover:opacity-80 transition-all duration-150 ease-in-out"
           >
-            {loadingA ? <div className="loader" /> : "A"}
+            {loadingA ? <div className="loader" /> : "Waste Collection"}
           </button>
           <button
             name="B"
             disabled={loadingB}
             className="w-[100%] rounded-md text-white h-[48px] text-[18px] bg-sky-400 flex items-center justify-center cursor-pointer hover:opacity-80 transition-all duration-150 ease-in-out"
           >
-            {loadingB ? <div className="loader" /> : "B"}
+            {loadingB ? <div className="loader" /> : "Parking"}
           </button>
           <button
             name="C"
             disabled={loadingC}
             className="w-[100%] rounded-md text-white h-[48px] text-[18px] bg-purple-400 flex items-center justify-center cursor-pointer hover:opacity-80 transition-all duration-150 ease-in-out"
           >
-            {loadingC ? <div className="loader" /> : "C"}
+            {loadingC ? <div className="loader" /> : "Public Utilities"}
           </button>
         </div>
       </form>
